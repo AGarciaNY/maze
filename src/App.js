@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import firebase from 'firebase';
+import Map from './components/map/map';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// console.log(firebase.batabase);
+  
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpgbWv2hBCybjuyMu0hzKKkF5ytRWxRS8",
+      authDomain: "maze-b843f.firebaseapp.com",
+      databaseURL: "https://maze-b843f.firebaseio.com",
+      projectId: "maze-b843f",
+      storageBucket: "maze-b843f.appspot.com",
+      messagingSenderId: "59745990940",
+      appId: "1:59745990940:web:15ffae503916de3e7262d9",
+      measurementId: "G-KL4SQZ93SK"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var dataforme= firebase.database();
+    var databaseRef = dataforme.ref("/");
+    databaseRef.once("value").then(function(snapshot) {
+      const directory = snapshot.val();
+      console.log(directory)
+    });
+
+    const attck = () => {
+      databaseRef.push({
+        age:"20",
+        country:"30",
+        story:"40",
+        title:"30"
+      })
+    }
+      
+        return (
+          <div>
+              <button onClick={attck}> attck</button>
+              <Map/>
+          </div>
+        );
 }
 
 export default App;
