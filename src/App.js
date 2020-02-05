@@ -1,8 +1,9 @@
 import React from 'react';
 import firebase from 'firebase';
 // import Map from './components/map/map';
-// import Shipbox from './components/Game/mainaction/action';
+import Shiplist from './components/Game/mainaction/action';
 import Servers from './components/Servers/server'
+import Map from './components/Game/map/map';
 function App() {
 // console.log(firebase.batabase);
   
@@ -42,6 +43,7 @@ function App() {
             <div>
               <div>
                 <h1>Servers</h1>
+                <Shiplist/>
                 <Servers/>
               </div>
             </div>

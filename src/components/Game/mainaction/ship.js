@@ -1,64 +1,96 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
+import Smallship from './small'
 
-const Ship=styled.div`
-  height:30px;
-  width:20px;
-  background-color:red;
+const Holder =styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
-export default class Ships extends Component{
+
+export default class Shiplist extends Component{
   
   render(){
-    var namesLiList2=[];
 
-
-    for(let i=0; i<12;i++){
-
-      let visibilitytakeone='hidden';
-      const Image = styled.img`
-        height:30px;
-        width:20px;
-        visibility:${visibilitytakeone};
-      `;
-
-
-      const action=()=>{
-        if(visibilitytakeone === "hidden"){
-          visibilitytakeone="visible"; 
-          console.log(visibilitytakeone);
-        } else if(visibilitytakeone === "visible" ){
-          visibilitytakeone="hidden";
-          console.log(visibilitytakeone);
-        }
-      }
-
-
+    let namesLiList11 = [];
+    let namesLiList10 = [];
+    let namesLiList9 = [];
+    let namesLiList8 = [];
+    let namesLiList7 = [];
+    let namesLiList6 = [];
+    let namesLiList5 = [];
+    let namesLiList4 = [];
+    let namesLiList3 = [];
+    let namesLiList2 = []; 
+    let namesLiList = [<Holder>{namesLiList2}</Holder>,
+                       <Holder>{namesLiList3}</Holder>,
+                       <Holder>{namesLiList4}</Holder>,
+                       <Holder>{namesLiList5}</Holder>,
+                       <Holder>{namesLiList6}</Holder>,
+                       <Holder>{namesLiList7}</Holder>,
+                       <Holder>{namesLiList8}</Holder>,
+                       <Holder>{namesLiList9}</Holder>,
+                       <Holder>{namesLiList10}</Holder>,
+                       <Holder>{namesLiList11}</Holder>
+                      ];
+    for(let i=0; i<100;i++){
       
-
+    if(i<10){
       namesLiList2.push(
-          <div
-          key={i+"hitheremans"} >
-            
-            <Ship 
-              key={i+"hithere"}
-              onClick={()=> action()}
-              >
-              <Image
-                whatsgoingon={visibilitytakeone}
-                key={i+"box"}
-                alt="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
-              />
-            </Ship>
-          </div>
-        );
+        <Smallship/>
+    );
+    }
+    if(i>9 && i<20){
+      namesLiList3.push(
+        <Smallship/>
+      );
+    }
+    if(i>19 && i<30){
+      namesLiList4.push(
+        <Smallship/>
+      );
+    }
+    if(i>29 && i<40 ){
+      namesLiList5.push(
+        <Smallship/>
+      );
+    }
+    if(i>39 && i<50){
+      namesLiList6.push(
+        <Smallship/>
+      );
+    }
+    if(i>49 && i<60){
+      namesLiList7.push(
+        <Smallship/>
+      );
+    }
+    if(i>59 && i<70){
+      namesLiList8.push(
+        <Smallship/>
+      );
+    }
+    if(i>69 && i<80){
+      namesLiList9.push(
+        <Smallship/>
+      );
+    }
+    if(i>79 && i<90){
+      namesLiList10.push(
+        <Smallship/>
+      );
+    }
+    if(i>89 && i<101){
+      namesLiList11.push(
+        <Smallship/>
+      );
+    }
      
     }
 
     return(
       <div>
-        {namesLiList2}
+        {namesLiList}
       </div>
     );
   }
