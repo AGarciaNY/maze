@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
-import Map from './components/map/map';
-
+// import Map from './components/map/map';
+import Shipbox from './components/mainaction/action';
 
 function App() {
 // console.log(firebase.batabase);
@@ -39,7 +39,8 @@ function App() {
         return (
           <div>
               <button onClick={attck}> attck</button>
-              <Map/>
+              {/* <Map/> */}
+              <Shipbox/>
           </div>
         );
 }
