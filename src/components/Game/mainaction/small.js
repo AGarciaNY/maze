@@ -1,15 +1,15 @@
 import React,{Component} from 'react';
-import {css} from '@emotion/core';
 import styled from '@emotion/styled'
+import Shiplist from './ship';
 
 const Image = styled.img`
-        height:30px;
-        width:20px;
+        height:50px;
+        width:50px;
 `;
 
 const Holder= styled.div`
   height:50px;
-  width:50px;
+  width: 50px;
   background-color:red;
   border:2px solid black;
 `;
@@ -20,26 +20,30 @@ const Holder= styled.div`
     super();
     this.state = {
       ifvisible: 'hidden',
+      
     }
   }
   colorchange=()=>{
     if(this.state.ifvisible === "hidden"){
-      
-    this.setState({
-      ifvisible: 'visible'
-    });
+  
+      this.setState({
+        ifvisible: 'visible',
+      });
     } else if(this.state.ifvisible === "visible" ){
       
       this.setState({
-      ifvisible: 'hidden'
-    });
+        ifvisible: 'hidden',
+      });
     }
-    console.log(this.state.ifvisible)
   }
   render(){
     return(
       <Holder
-        onClick={()=> this.colorchange()}
+        onClick={() => {
+            this.colorchange();
+            this.props.checking(this.state.ifvisible)
+          }
+        }
       >
         <Image
           style={{visibility:this.state.ifvisible}}
