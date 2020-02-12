@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
-import styled from '@emotion/styled'
-import Shiplist from './ship';
+import styled from '@emotion/styled';
 
 const Image = styled.img`
         height:50px;
@@ -42,6 +41,7 @@ const Holder= styled.div`
         onClick={() => {
             this.colorchange();
             this.props.checking(this.state.ifvisible)
+            this.props.locationofs(this.props.number);
           }
         }
       >

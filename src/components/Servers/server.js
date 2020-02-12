@@ -1,79 +1,69 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import firebase from'firebase';
+import Testingrenderofnammes from './info';
+const Title = styled.h1`
+  background-color:red;
+  height:30px;
+  width:30px;
+  font-size:10px;
+`;
 
-export default class Servergo extends Component{
- 
-  render(){
-    var firebaseConfig = {
-      apiKey: "AIzaSyCpgbWv2hBCybjuyMu0hzKKkF5ytRWxRS8",
-      authDomain: "maze-b843f.firebaseapp.com",
-      databaseURL: "https://maze-b843f.firebaseio.com",
-      projectId: "maze-b843f",
-      storageBucket: "maze-b843f.appspot.com",
-      messagingSenderId: "59745990940",
-      appId: "1:59745990940:web:15ffae503916de3e7262d9",
-      measurementId: "G-KL4SQZ93SK"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    var dataforme= firebase.database();
-    var databaseRef = dataforme.ref("/");
-    var holder;
-    var server=[];
-    databaseRef.once("value").then(function(snapshot) {
-      holder = snapshot.val();
-      
-      for(var key in holder){
-        let servername=holder[key].server1.servername;
-        console.log(servername);
-        console.log("hi there man");
-        server.push(
-        <div>
-          <p>{servername}himan</p>
-        </div>
-        );
-      }
-    });
 
-    const attck = () => {
-      console.log(server);
-      databaseRef.push({
-        server1:{
-          servername:"names",
-          player1:{
-              name:"names",
-              locationofships:[],
-              ships:{},
-              shipsleft:"sanodnoaindo ",
-              playeronemap:"maspmdopasmpod",
-              playertwomap:"mdasmdpooamsd"
-          },
-          player2:{
-              name:"",
-              locationofships:"dd",
-              ships:{},
-              shipsleft:"maposdmpoasmd",
-              playeronemap:"mamsdomaspodm",
-              playertwomap:"mapsomdpoasmpod"
-          }
-        }
-      })
+export default class Servers extends Component {
+  constructor() {
+    super();
+    this.state = {
+      titles: [],
+
     }
-  
+  }
+  componentDidMount(){
+    
+    this.props.databaseRef.once("value").then((snapshot)=> {
+
+      var directory = snapshot.val();
+
+      for (var key in directory) {
+
+        let title=directory[key].server1.servername;
+        let titles=this.state.titles;
+        titles.push(
+          title
+        );
+        this.setState({
+          titels: titles,
+        });
+        
+
+      }
+
+
+    });
+  }
+
+  render() {
+    // for(var i=0;i< this.state.titles.length ;i++){
+    // console.log(this.state.titles[i]);
+    // }
+  return this.state.titles.map(title=> <div>{title}</div>)
+    // runlist.push(
+    //   <div>
+    //     <h1>hi sunday{title}</h1>
+    //   </div>
+    // );
 
 
 
-    return(
-      <div>
-    <div onClick={attck}>hi there</div>
-    {server}
-    </div>
+
+
+    return (
+      <div key="run">
+        <Title> hi man</Title>
+        {/* <Serverslist/> */}
+        {/* {this.state.titles} */}
+        <input></input>
+      </div>
     );
-
-
-
 
   }
 }

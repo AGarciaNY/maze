@@ -7,32 +7,44 @@ const Holder =styled.div`
   flex-direction: row;
 `;
 
-
 export default class Shiplist extends Component{
   constructor() {
     super();
     this.state = {
-      numbersofships:0
+      numbersofships:0,
+      location:[]
     }
   }
-  numbersOF=(isithov)=>{
+  
+  makevisible=(isithov)=>{
     
     if(isithov === "hidden"){
       var num= this.state.numbersofships +1;
       this.setState({
-        numbersofships: num
+        numbersofships: num,
+        locationnum:this.props.number
       });
-      console.log(this.state.numbersofships);
+
     } 
     if(isithov === "visible" ){
       var numtwp= this.state.numbersofships -1;
       this.setState({
         numbersofships: numtwp
       });
-      console.log(this.state.numbersofships);
     }
     
   }
+
+  locationnum=(number)=>{
+    
+
+    this.setState((state,props)=>({
+        location: state.location.concat([number])
+      })
+    );
+    console.log(this.state.location)
+  }
+
   render(){
 
     let namesLiList11 = [];
@@ -45,24 +57,27 @@ export default class Shiplist extends Component{
     let namesLiList4 = [];
     let namesLiList3 = [];
     let namesLiList2 = []; 
-    let namesLiList = [<Holder key='a'>{namesLiList2}</Holder>,
-                       <Holder key='w'>{namesLiList3}</Holder>,
-                       <Holder key='d'>{namesLiList4}</Holder>,
-                       <Holder key='g'>{namesLiList5}</Holder>,
-                       <Holder key='v'>{namesLiList6}</Holder>,
-                       <Holder key='q'>{namesLiList7}</Holder>,
-                       <Holder key='z'>{namesLiList8}</Holder>,
-                       <Holder key='x'>{namesLiList9}</Holder>,
-                       <Holder key='c'>{namesLiList10}</Holder>,
-                       <Holder key='p'>{namesLiList11}</Holder>
-                      ];
+    let namesLiList = [
+      <Holder key='a'>{namesLiList2}</Holder>,
+      <Holder key='w'>{namesLiList3}</Holder>,
+      <Holder key='d'>{namesLiList4}</Holder>,
+      <Holder key='g'>{namesLiList5}</Holder>,
+      <Holder key='v'>{namesLiList6}</Holder>,
+      <Holder key='q'>{namesLiList7}</Holder>,
+      <Holder key='z'>{namesLiList8}</Holder>,
+      <Holder key='x'>{namesLiList9}</Holder>,
+      <Holder key='c'>{namesLiList10}</Holder>,
+      <Holder key='p'>{namesLiList11}</Holder>
+    ];
     for(let i=0; i<100;i++){
       
     if(i<10){
       namesLiList2.push(
         <Smallship 
-          key={i} 
-          checking={(isit)=> this.numbersOF(isit)}
+          key={i}
+          number={i} 
+          checking={this.makevisible}
+          locationofs={this.locationnum}
           />
     );
     }
@@ -70,7 +85,9 @@ export default class Shiplist extends Component{
       namesLiList3.push(
         <Smallship 
           key={i} 
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -78,7 +95,9 @@ export default class Shiplist extends Component{
       namesLiList4.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -86,7 +105,9 @@ export default class Shiplist extends Component{
       namesLiList5.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -94,7 +115,9 @@ export default class Shiplist extends Component{
       namesLiList6.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -102,7 +125,9 @@ export default class Shiplist extends Component{
       namesLiList7.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -110,7 +135,9 @@ export default class Shiplist extends Component{
       namesLiList8.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -118,7 +145,9 @@ export default class Shiplist extends Component{
       namesLiList9.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -126,7 +155,9 @@ export default class Shiplist extends Component{
       namesLiList10.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
@@ -134,7 +165,9 @@ export default class Shiplist extends Component{
       namesLiList11.push(
         <Smallship 
           key={i}
-          checking={(isit)=> this.numbersOF(isit)}
+          number={i}
+          checking={(isit)=> this.makevisible(isit)}
+          locationofs={this.locationnum}
           />
       );
     }
