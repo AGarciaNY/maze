@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import Smallship from './small'
+import Box from './small'
 
 const Holder =styled.div`
   display: flex;
@@ -73,7 +73,7 @@ export default class Shiplist extends Component{
       
     if(i<10){
       namesLiList2.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i} 
           checking={this.makevisible}
@@ -83,9 +83,9 @@ export default class Shiplist extends Component{
     }
     if(i>9 && i<20){
       namesLiList3.push(
-        <Smallship 
+        <Box 
           key={i} 
-          number={i}
+          name={"player"+i}
           checking={(isit)=> this.makevisible(isit)}
           locationofs={this.locationnum}
           />
@@ -93,7 +93,7 @@ export default class Shiplist extends Component{
     }
     if(i>19 && i<30){
       namesLiList4.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -103,7 +103,7 @@ export default class Shiplist extends Component{
     }
     if(i>29 && i<40 ){
       namesLiList5.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -113,7 +113,7 @@ export default class Shiplist extends Component{
     }
     if(i>39 && i<50){
       namesLiList6.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -123,7 +123,7 @@ export default class Shiplist extends Component{
     }
     if(i>49 && i<60){
       namesLiList7.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -133,7 +133,7 @@ export default class Shiplist extends Component{
     }
     if(i>59 && i<70){
       namesLiList8.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -143,7 +143,7 @@ export default class Shiplist extends Component{
     }
     if(i>69 && i<80){
       namesLiList9.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -153,7 +153,7 @@ export default class Shiplist extends Component{
     }
     if(i>79 && i<90){
       namesLiList10.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}
@@ -163,7 +163,7 @@ export default class Shiplist extends Component{
     }
     if(i>89 && i<101){
       namesLiList11.push(
-        <Smallship 
+        <Box 
           key={i}
           number={i}
           checking={(isit)=> this.makevisible(isit)}

@@ -13,7 +13,7 @@ const Holder= styled.div`
   border:2px solid black;
 `;
 
- export default class Smallship extends Component{
+ export default class Box extends Component{
 
   constructor() {
     super();
