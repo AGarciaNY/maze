@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import styled from '@emotion/styled';
-import Shiplist from '../../Game/mainaction/ship';
+import Map from '../../Game/mainaction/map';
 
 export default class Playertwo extends Component{
   render(){
     return(
       <div>
-        <Shiplist/>
+        <Map player={this.props.player}/>
       </div>
     );
   } 

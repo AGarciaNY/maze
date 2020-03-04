@@ -1,13 +1,13 @@
 import React,{Component} from 'react';
 //import styled from '@emotion/styled';
-import Shiplist from '../../Game/mainaction/ship'
+import Map from '../../Game/mainaction/map';
 
 export default class Playerone extends Component{
   render(){
     return(
       <div>
-        <Shiplist
-          player='playerone'
+        <Map
+          player={this.props.player}
         />
       </div>
     );

@@ -9,7 +9,7 @@ import Playeronehiden from './components/players/playerone/playeronehiden';
 import Playertwohiden from './components/players/playertwo/playertwohiden';
 import Selctplayer from './components/players/seletingplayer';
 import Scorebord from './components/Game/score/score';
-
+import Map from './components/Game/mainaction/map'
 
 
 export default class App extends Component{
@@ -23,7 +23,6 @@ export default class App extends Component{
     this.setState({
       playerpick: player
     });
-    console.log(player+" this one "+this.state.playerpick)
   }
   render(){
 
@@ -48,7 +47,9 @@ export default class App extends Component{
         <div>
           <Scorebord/>
           <h1>Player one</h1>
-          <Playerone/>
+          <Playerone
+            player='playerone'
+            />
           <Playertwohiden/>
         </div>
       )
@@ -57,7 +58,9 @@ export default class App extends Component{
         <div>
           <Scorebord />
           <h1>Player two</h1>
-          <Playertwo />
+          <Playertwo 
+            player='playertwo'
+          />
           <Playeronehiden/>
         </div>
       );
@@ -67,6 +70,7 @@ export default class App extends Component{
           <Selctplayer
             pickingplayer={(player)=> this.pickAplayer(player)}
             />
+            {/* <Map/> */}
         </div>
       )
     };
