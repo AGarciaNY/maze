@@ -14,42 +14,21 @@ const Row = styled.div`
 
 export default class Map extends Component{
   render(){
-      if(this.props.player === 'playerone'){
-      let namesLiList = [];
-      for(let i=0; i<100;i++){
-        
-          namesLiList.push(
-            <Box 
-              playerone={'playeroneposition'+i}
-              player={this.props.player}
-              
-            />
-        );
       
-      }
-      return(
-        <Row>
-          {namesLiList}
-        </Row>
-      )
-    }
+      let namesLiList = this.props.SL.map((value, index)=>{return (
+        <Box  
+          player={this.props.player} 
+          visable={value}
+          update={()=> this.props.newlocation(index)}
+        /> 
+        )} 
+       );
 
-    if(this.props.player === 'playertwo'){
-      let namesLiList = [];
-      for(let i=0; i<100;i++){
-        
-          namesLiList.push(
-            <Box 
-            pos={'playertwoposition'+i}
-            player={this.props.player}/>
-        );
-      
-      }
+
       return(
         <Row>
           {namesLiList}
         </Row>
       )
-    }
   }
 }

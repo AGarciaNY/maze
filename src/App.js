@@ -24,24 +24,31 @@ export default class App extends Component{
       playerpick: player
     });
   }
+
   render(){
 
-    // var firebaseConfig = {
-    //   apiKey: "AIzaSyCpgbWv2hBCybjuyMu0hzKKkF5ytRWxRS8",
-    //   authDomain: "maze-b843f.firebaseapp.com",
-    //   databaseURL: "https://maze-b843f.firebaseio.com",
-    //   projectId: "maze-b843f",
-    //   storageBucket: "maze-b843f.appspot.com",
-    //   messagingSenderId: "59745990940",
-    //   appId: "1:59745990940:web:15ffae503916de3e7262d9",
-    //   measurementId: "G-KL4SQZ93SK"
-    // };
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpgbWv2hBCybjuyMu0hzKKkF5ytRWxRS8",
+      authDomain: "maze-b843f.firebaseapp.com",
+      databaseURL: "https://maze-b843f.firebaseio.com",
+      projectId: "maze-b843f",
+      storageBucket: "maze-b843f.appspot.com",
+      messagingSenderId: "59745990940",
+      appId: "1:59745990940:web:15ffae503916de3e7262d9",
+      measurementId: "G-KL4SQZ93SK"
+    };
 
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
     // firebase.initializeApp(firebaseConfig);
-    // firebase.analytics();
+    firebase.analytics();
 
-    // var database = firebase.database();
-
+    var database = firebase.database();
+    var databaseRefp1 = database.ref("/playerone");
+    var databaseRefp2 = database.ref("/playertwo");
+    
+    
     if(this.state.playerpick === "playerone"){
       return(
         <div>
@@ -49,6 +56,8 @@ export default class App extends Component{
           <h1>Player one</h1>
           <Playerone
             player='playerone'
+            // databaseRef ={ database.ref("/")}
+            pushingdata={(array)=>{databaseRefp1.push(array)}}
             />
           <Playertwohiden/>
         </div>
@@ -60,6 +69,7 @@ export default class App extends Component{
           <h1>Player two</h1>
           <Playertwo 
             player='playertwo'
+            pushingdata={(array)=>{databaseRefp2.push(array)}}
           />
           <Playeronehiden/>
         </div>

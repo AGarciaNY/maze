@@ -56,37 +56,25 @@ export default class Box extends Component{
     }
   }
   render(){
-    if(this.props.player === "playerone"){
-      
+      let isVisible = "hidden";
+      if(this.props.visable){
+        isVisible="visible"
+      };
       return(
         <Holder
           onClick={() => {
               this.p1action();
+              this.props.update();
             }
           }
         >
           <Image
-            style={{visibility:this.state.ifvisible}}
-            alt="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
-          />
-        </Holder>
-      );
-    } else if(this.props.player === "playertwo"){
-      return(
-        <Holder
-          onClick={() => {
-              this.p2action();
-            }
-          }
-        >
-          <Image
-            style={{visibility:this.state.ifvisible}}
+            style={{visibility:isVisible}}
             alt="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQU9Vb5tYWn6R6moUuhXJqIRJMOedsRdmNUkDn2XOi3y5QFZz9"
           />
         </Holder>
       );
     }
+    
   }
-}
