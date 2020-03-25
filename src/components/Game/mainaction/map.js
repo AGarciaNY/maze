@@ -11,9 +11,8 @@ const Row = styled.div`
   grid-column-gap: 0;
   grid-row-gap: 0;
 `;
-var numberofship=0;
+
 export default class Map extends Component{
-  
   render(){
       if(this.props.player === 'playerone'){
       let namesLiList = [];
@@ -21,8 +20,9 @@ export default class Map extends Component{
         
           namesLiList.push(
             <Box 
-              pos={'playeroneposition'+i}
+              playerone={'playeroneposition'+i}
               player={this.props.player}
+              
             />
         );
       
@@ -39,7 +39,9 @@ export default class Map extends Component{
       for(let i=0; i<100;i++){
         
           namesLiList.push(
-            <Box pos={'playertwoposition'+i}/>
+            <Box 
+            pos={'playertwoposition'+i}
+            player={this.props.player}/>
         );
       
       }

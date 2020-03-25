@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import styled from '@emotion/styled';
-
 const Image = styled.img`
         height:50px;
         width:50px;
@@ -12,62 +11,57 @@ const Holder= styled.div`
   background-color:red;
   border:2px solid black;
 `;
-
-var numberofship=0;
-
+var p2s=0;
 export default class Box extends Component{
 
   constructor() {
     super();
     this.state = { 
       ifvisible: 'hidden',
-      
+      p1numberofship:'',
+      p2numberofship:''
     }
   }
-  colorchange=()=>{
+  p1action=()=>{
     if(this.state.ifvisible === "hidden"){
-  
+      
       this.setState({
         ifvisible: 'visible',
+        p1numberofship:+1
       });
     } else if(this.state.ifvisible === "visible" ){
       
       this.setState({
         ifvisible: 'hidden',
+        p1numberofship:-1
       });
     }
   }
-
-  numberofships=()=>{
-    if(this.state.ifvisible === "hidden"){
-      numberofship=numberofship+1
-     
-    } else if(this.state.ifvisible === "visible" ){
-      numberofship=numberofship-1
-    }
-    
-  }
+  p2action=()=>{
   
+    if(this.state.ifvisible === "hidden" && this.state.p2numberofship < 15){
+      p2s = p2s +1
+      this.setState({
+        ifvisible: 'visible',
+        p2numberofship: p2s
+      });
+      console.log(p2s)
+      console.log(this.state.p2numberofship)
+    } else if(this.state.ifvisible === "visible" ){
+      
+      this.setState({
+        ifvisible: 'hidden',
+        p2numberofship:-1
+      });
+    }
+  }
   render(){
     if(this.props.player === "playerone"){
-      let positions=[];
-      for(var i=0; i < positions.length; i++){
-
-        if (pos === positions[i]){
-          delete positions[i];
-        }else{
-          positions.push(pos);
-          console.log('should push')
-        }
-      }
-      console.log(positions)
+      
       return(
         <Holder
           onClick={() => {
-              this.colorchange();
-              this.numberofships();
-              this.position(this.props.pos);
-
+              this.p1action();
             }
           }
         >
@@ -79,14 +73,10 @@ export default class Box extends Component{
         </Holder>
       );
     } else if(this.props.player === "playertwo"){
-      let positions=[];
       return(
         <Holder
           onClick={() => {
-              this.colorchange();
-              this.numberofships();
-              this.position(this.props.pos);
-
+              this.p2action();
             }
           }
         >
