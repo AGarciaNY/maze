@@ -57,9 +57,11 @@ export default class App extends Component{
           <Playerone
             player='playerone'
             // databaseRef ={ database.ref("/")}
-            pushingdata={(array)=>{databaseRefp1.push(array)}}
+            pushingdata={(array)=>{databaseRefp1.set(array)}}
             />
-          <Playertwohiden/>
+          <h1>Player two</h1>
+          <Playertwohiden databaseRefp2={databaseRefp2}/>
+          
         </div>
       )
     }else if(this.state.playerpick === "playertwo"){
@@ -69,7 +71,7 @@ export default class App extends Component{
           <h1>Player two</h1>
           <Playertwo 
             player='playertwo'
-            pushingdata={(array)=>{databaseRefp2.push(array)}}
+            pushingdata={(array)=>{databaseRefp2.set(array)}}
           />
           <Playeronehiden/>
         </div>
