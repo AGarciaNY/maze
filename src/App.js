@@ -11,6 +11,10 @@ import Selctplayer from './components/players/seletingplayer';
 import Scorebord from './components/Game/score/score';
 import Map from './components/Game/mainaction/map'
 
+const PlayerView = styled.div`
+  display: flex;
+`;
+
 
 export default class App extends Component{
   constructor() {
@@ -51,30 +55,27 @@ export default class App extends Component{
     
     if(this.state.playerpick === "playerone"){
       return(
-        <div>
-          <Scorebord/>
-          <h1>Player one</h1>
+        <PlayerView>
+          {/*<Scorebord/>*/}
           <Playerone
             player='playerone'
             // databaseRef ={ database.ref("/")}
             pushingdata={(array)=>{databaseRefp1.set(array)}}
             />
-          <h1>Player two</h1>
           <Playertwohiden databaseRefp2={databaseRefp2}/>
           
-        </div>
+        </PlayerView>
       )
     }else if(this.state.playerpick === "playertwo"){
       return(
-        <div>
-          <Scorebord />
-          <h1>Player two</h1>
+        <PlayerView>
+          {/*<Scorebord />*/}
           <Playertwo 
             player='playertwo'
             pushingdata={(array)=>{databaseRefp2.set(array)}}
           />
           <Playeronehiden/>
-        </div>
+        </PlayerView>
       );
     }else{
       return(

@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
-//import styled from '@emotion/styled';
+import styled from '@emotion/styled';
 import Map from '../../Game/mainaction/map';
+
+const PlayerGrid = styled.div`
+    width: 100%;
+`;
 
 export default class Playertwohiden extends Component{
   constructor() {
@@ -25,14 +29,14 @@ export default class Playertwohiden extends Component{
 
   render(){
     return(
-      <div>
-        
+      <PlayerGrid>
+        <h1>Player 2 Hidden</h1>
         <Map
           player={"one"}
           SL={this.state.shiplocation}
           // newlocation={}
         />
-      </div>
+      </PlayerGrid>
     );
   } 
  }

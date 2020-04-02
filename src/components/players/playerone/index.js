@@ -1,10 +1,9 @@
 import React,{Component} from 'react';
-import styled from '@emotion/styled';
 import Map from '../../Game/mainaction/map';
-import Playeronehiden from './playeronehiden'
+import styled from "@emotion/styled";
 
-const Holder = styled.div`
-  display: flex;
+const PlayerGrid = styled.div`
+    width: 100%;
 `;
 
 export default class Playerone extends Component{
@@ -24,17 +23,18 @@ export default class Playerone extends Component{
   }
   render(){
     return(
-      <div>
-        <Holder>
+      <PlayerGrid>
+        <div>
+        <h1>Player 1</h1>
         <Map
           player={this.props.player}
           SL={this.state.shiplocation}
           newlocation={this.updateShipLocation}
         />
-        </Holder>
+        </div>
         
         <button onClick={()=> this.props.pushingdata(this.state.shiplocation)}>spots</button>
-      </div>
+      </PlayerGrid>
     );
   } 
  }
