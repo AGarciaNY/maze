@@ -74,7 +74,7 @@ export default class App extends Component{
             player='playertwo'
             pushingdata={(array)=>{databaseRefp2.set(array)}}
           />
-          <Playeronehiden/>
+          <Playeronehiden databaseRefp1={databaseRefp1}/>
         </PlayerView>
       );
     }else{

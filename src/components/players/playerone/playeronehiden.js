@@ -15,7 +15,7 @@ export default class Playeronehiden extends Component{
     }
   }
   componentDidMount(){
-    this.props.databaseRefp2.on('value',snapshot =>{ 
+    this.props.databaseRefp1.on('value',snapshot =>{ 
       console.log(`hi this playertwo${JSON.stringify(snapshot)}`)
 
       let newshiplocation=[];
@@ -34,8 +34,7 @@ export default class Playeronehiden extends Component{
         <h1>Player 1 Hidden</h1>
         <Map
           player={"one"}
-          SL={new Array(100).fill(false)}
-          // newlocation={}
+          SL={this.state.shiplocation}
         />
       </PlayerGrid>
     );
